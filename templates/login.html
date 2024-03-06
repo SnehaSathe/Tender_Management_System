@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<style>
+    .col-lg-4{
+        box-shadow: 2px 2px 2px grey;
+        background: red;
+    }
+
+  
+        input{
+            margin-bottom: 20px;
+            width:95%;
+            height:20px;
+            border: none;
+            background-color: transparent;
+            border-radius: 2px;
+            outline:none;
+            padding-bottom:5px;
+            color: #828da0;
+            border-bottom: 2px solid grey;
+            }
+            
+            input:focus{
+              border-color: #3498db;
+              border-bottom-width: 2px;
+              transition:0.3s ease;
+            }
+            
+            ::placeholder{
+            color:#828da0;
+            font-size:0.85em;
+            }
+  .btn{
+      height:30px;
+      color:black; 
+      font-size: 16px;
+                     
+  }
+  
+  .body{
+      width: 100%;
+      background-color:#77b5d9;
+      height:100vh;
+  }
+
+  .col-lg-4 {
+    background-color:white;
+  }
+  label{
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 20px;
+  }
+
+</style>
+<body>
+    {% for msg in messages %}
+    <div class="alert alert-success" role="alert">{{ msg }}</div>
+    {% endfor %}
+<div class="container" style="width:100%;">
+    <div class="p-2 m-2">
+        <div class="col-lg-4 mt-4 border mb-4 mx-auto rounded pt-4">
+            <div class="text-center col">
+
+
+            <!-- <hr> -->
+            <div class="display-8">Login Here</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border mt-4 mb-4 rounded">Login Here</h3>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- email -->
+                <div class="form-group">
+                    <i class="fa fa-email" aria-hidden="true"></i><label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                     placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <i class="fa fa-lock" aria-hidden="true"></i><label for="">Password</label>
+                    <input type="password"
+                    name="password"
+                    id=""
+                     placeholder="********">
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Login">
+                </div>
+                <div class="form-group" style="text-align:left" >
+                    <a href="/admin">Login As Admin</a>
+                </div>
+
+               
+            </form>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+</div>

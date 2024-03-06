@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+
+<style>
+   th,td{
+        font-family: 'Roboto Slab', serif;
+
+    }
+
+</style>
+<div class="container">
+   <div class="border rounded p-4 m-4">
+        <p class="display-4 pl-4 ml-4">BID LIST</p>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>Tender</th>
+                    <th>Date</th>
+                    <th>Tender ID</th>
+                    <th>Price</th>
+                    <th>Bid Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for order in orders %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{order.product.name}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.product.number}}</td>
+                    <td>{{order.product.price|currency}}</td>
+                    {% if order.status %}
+                    <td><small class="badge badge-success">Approved</small></td>
+                    {% else %}
+                    <td><small class="badge badge-warning">Pending</small></td>
+            
+{% endif %}
+                </tr>
+
+                {% endfor %}
+               
+            </tbody>
+</table>
+
+{% endblock %}

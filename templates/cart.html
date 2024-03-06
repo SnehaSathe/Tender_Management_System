@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+{% block header %}
+<style>
+ 
+th{
+  background-color:green;
+
+}
+
+.card-title{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size:30px;
+  background-color:lightblue;
+  padding-left: 15px;
+}
+.card-text{
+  font-family: 'Chakra Petch', sans-serif;
+}
+.details{
+  width:90%;
+}
+.btn{
+  width:90px;
+}
+.card-footer{
+  background-color:white;
+  border:none;
+}
+
+
+
+</style>
+
+<div class="container">
+   <div class="border rounded p-2 m-4">
+        <p class="display-4 pl-4 ml-4">DETAILS</p>
+        <hr>
+      
+        <div id='products' class="col-lg-12 mx-auto" >
+          <div class="row mx-auto" >
+            {% for product in products %}
+            <div class="card details mx-auto mb-3" id={{product.id}} >
+              
+              <div class="card-body">
+                <p class="card-title"><b>{{product.name}}</b></p>
+                <p class="card-text float-right">ID - {{product.number}}</p>
+                <p class="card-text" style="font-size:20px;"><u><i>{{product.category}}</i></u></p>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text">Location: {{product.location}}</p>    
+                               <p class="card-text">Total Quoted Amount :<b>{{product.price|currency}}</b></p>
+              </div>
+    
+              <div class="card-footer">
+                  <a href="#" data-toggle="modal" data-target="#exampleModal" 
+                      class="btn btn-outline-info border rounded  col-lg-6 float-right" >BID</a>
+              </div>
+                
+    
+              
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+
+   </div>
+</div>
+
+
+<!-- modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+              BID FORM
+          </h5>
+          <hr>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="m-2 p-3">
+            <form action="/check-out" method="POST">
+                {% csrf_token %}
+
+               
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" id="" class="form-control" >
+                  </div>
+
+                
+
+                  <div class="form-group">
+                    <label for="">Bid Amount:</label>
+                    <input type="text" name="bidAmt" id="" class="form-control" >  
+                  </div>
+            
+
+                  
+                  <input type="submit" class="btn float-right btn-outline-info col-lg-6" value="Bid ">
+            </form>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% endblock %}

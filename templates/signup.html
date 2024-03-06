@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+ 
+ .col-lg-5{
+    -moz-box-shadow: 0 0 6px #ccc;
+-webkit-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px black;
+ }
+ 
+
+ label{
+     font-size: 18px;
+ }
+ input{
+        margin-bottom: 20px;
+        width:95%;
+        height:20px;
+        border: none;
+        background-color: transparent;
+        border-radius: 2px;
+        outline:none;
+        padding-bottom:5px;
+        color: #828da0;
+        border-bottom: 2px solid grey;
+        }
+        
+        input:focus{
+          border-color: #3498db;
+          border-bottom-width: 2px;
+          transition:0.3s ease;
+        }
+        
+        ::placeholder{
+        color:#828da0;
+        font-size:0.95em;
+        }
+.btn{
+  height:30px;
+}
+
+
+.btn:hover{
+    background-color: #3e8e41}
+    .btn:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);}
+    
+
+</style>
+<body >
+<div class="container mt-4">
+
+    <div class="p-4 m-4">
+
+
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+
+
+            <!-- <hr> -->
+            <div class="display-8">Create An Account</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" 
+                     placeholder="">
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname"
+                    id="" value="{{values.last_name}}" 
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="">username</label>
+                    <input type="text" name="username"
+                    id="" value="{{values.username}}" 
+                    >
+                </div>
+
+
+                <!-- phone -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone"
+                    id="" 
+                    value="{{values.phone}}"
+                    placeholder="565698959"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                     placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password"
+                    name="password"
+                    id=""
+                      placeholder="********">
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info" type="submit" value="Create An Account ">
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>
