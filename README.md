@@ -117,19 +117,19 @@ Include some screenshots of the system for visual representation.
 
 ![image](https://github.com/user-attachments/assets/18394b4f-286b-4f02-9458-4f4e73dcd43b)
 
-Bid Details
+## Bid Details
 
 ![image](https://github.com/user-attachments/assets/fa6af959-2ad6-40c6-ba48-2b9e25927af1)
 
-Bid Form
+## Bid Form
 
 ![image](https://github.com/user-attachments/assets/02e2945b-da9e-428d-8219-28a4d12b9bac)
 
-Bid List
+## Bid List
 
 ![image](https://github.com/user-attachments/assets/d8f46288-52e7-4028-b080-82c492ff299b)
 
-Bid Approval
+## Bid Approval
 
 ![image](https://github.com/user-attachments/assets/1d32fd8f-f2ad-4c6b-826f-fd830fb65f77)
 
