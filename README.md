@@ -149,13 +149,8 @@ Include some screenshots of the system for visual representation.
 
 ---
 
-## 8. **License**
 
-This project is licensed under the MIT License.
-
----
-
-## 9. **References**
+## 8. **References**
 - [Django Framework](https://www.djangoproject.com/)
 - [SQLite Database](https://www.sqlite.org/index.html)
   
