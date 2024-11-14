@@ -92,7 +92,6 @@ The Tender Management System is a web-based platform that automates the tenderin
 ## 6. **Screenshots**
 
 Include some screenshots of the system for visual representation.
-![image](https://github.com/user-attachments/assets/1ab043b2-c3fe-4434-a667-1a85d7266060)
 
 ![image](https://github.com/user-attachments/assets/a30b09f2-e346-4edd-b06a-dd447727b4fa)
 
